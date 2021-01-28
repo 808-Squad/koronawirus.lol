@@ -92,17 +92,18 @@ const SubHeader = styled.p`
 `
 
 const LogoContainer = styled.div`
-   max-height: 200px;
+   // max-height: 300px;
    position: relative;
    display: flex;
    justify-content: center;
    @media (max-width: 768px) {
     max-width: 65vh;
+    max-height: 200px;
   }
 `
 
 const Logo = styled.img`
-   width: 2000px;
+
 `
 
 function shuffle(array) {
