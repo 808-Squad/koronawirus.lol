@@ -7,6 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+  overflow-y: scroll;
   font-family: "Open Sans", sans-serif;
   height: 100%;
 `
@@ -23,6 +24,16 @@ const Header = styled.div`
   position: absolute;
   top: 50px;
   max-width: 50vh;
+  @media (max-width: 768px) {
+    top: 30px;
+  }
+`
+
+const SubHeader = styled.p`
+   display: block;
+   @media (max-width: 768px) {
+     display: none;
+   }
 `
 
 const TopBar = styled.div`
@@ -51,20 +62,28 @@ const StyledButton = styled.button`
 `
 
 const SentencesContainer = styled.div`
-   height: 150vh;
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   max-width: 1000px;
-   @media (max-width: 1000px) {
-    max-width: 700px;
+  height: 150vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1000px;
+  // padding: 20px !important;
+  @media (max-width: 1100px) {
+    width: 700px;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `
 
+const SentenceHeader = styled.h2`
+
+`
+
 const Sentence = styled.li`
-   margin: 15px;
-   font-size: 22px;
-   @media (max-width: 768px) {
+  margin: 15px;
+  font-size: 22px;
+  @media (max-width: 768px) {
     font-size: 16px;
   }
 `
@@ -85,12 +104,6 @@ const Footer = styled.div`
     text-align: center;
     max-width: 80vh;
     margin: 10px;
-`
-const SubHeader = styled.p`
-   display: block;
-   @media (max-width: 768px) {
-     display: none;
-   }
 `
 
 const LogoContainer = styled.div`
@@ -144,6 +157,13 @@ function App() {
     (sentences => (<Sentence>W autobusach może być zajęte max. {Math.floor(60 * Number(sentences[31]) / 100)} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
   ]
 
+  const dateOpts = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  };
+  const date = (new Date()).toLocaleDateString('pl-PL', dateOpts);
+
   return (
       <Container>
         <TopBar />
@@ -156,6 +176,9 @@ function App() {
         </LogoContainer>
         <StyledButton onClick={() => setSentences(generate())}>GENERUJ</StyledButton>
         <SentencesContainer>
+        <SentenceHeader>
+          Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
+        </SentenceHeader>
         {sentences && (
           <>
           {shuffle(sentenceItems).map(it => it(sentences))}
