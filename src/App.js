@@ -74,7 +74,7 @@ const Footer = styled.div`
     padding: 0.3rem;
     background-color: white;
     padding-left: 1rem;
-    width: 100%;
+    padding-right: 1rem;
     font-size: 11px;
     font-style: italic;
     border-top: 1px solid;
@@ -83,6 +83,8 @@ const Footer = styled.div`
     position: relative;
     height: 20px;
     text-align: center;
+    max-width: 80vh;
+    margin: 10px;
 `
 const SubHeader = styled.p`
    display: block;
@@ -157,11 +159,10 @@ function App() {
         {sentences && (
           <>
           {shuffle(sentenceItems).map(it => it(sentences))}
+          <Footer>Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a></Footer>
           </>
         )}
         </SentencesContainer>
-
-        <Footer>Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a></Footer>
       </Container>
   );
 }
