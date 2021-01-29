@@ -1,4 +1,4 @@
-import data_path from '../data.csv';
+import data_path from '../data.tsv';
 
 const QUARANTINE_MIN = 5;
 const QUARANTINE_MAX = 31;
@@ -12,7 +12,7 @@ xhr.onload = () => {
         if (xhr.status === 200) {
             data = xhr.responseText.replace(/[\r]+/g, '').split('\n').filter(e => e);
             for (let i = 0; i < data.length; i++) {
-                data[i] = data[i].replace("\"", "").split(',').filter(e => e);
+                data[i] = data[i].replace("\"", "").split('\t').filter(e => e);
             }
         } else {
             console.error(xhr.statusText);
