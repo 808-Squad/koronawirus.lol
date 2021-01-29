@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "https://koronawirus.lol/static/css/main.59208324.chunk.css",
-    "main.js": "https://koronawirus.lol/static/js/main.e2df0a40.chunk.js",
-    "main.js.map": "https://koronawirus.lol/static/js/main.e2df0a40.chunk.js.map",
-    "runtime-main.js": "https://koronawirus.lol/static/js/runtime-main.3003f9e1.js",
-    "runtime-main.js.map": "https://koronawirus.lol/static/js/runtime-main.3003f9e1.js.map",
-    "static/js/2.987e3065.chunk.js": "https://koronawirus.lol/static/js/2.987e3065.chunk.js",
-    "static/js/2.987e3065.chunk.js.map": "https://koronawirus.lol/static/js/2.987e3065.chunk.js.map",
-    "static/js/3.9c85387b.chunk.js": "https://koronawirus.lol/static/js/3.9c85387b.chunk.js",
-    "static/js/3.9c85387b.chunk.js.map": "https://koronawirus.lol/static/js/3.9c85387b.chunk.js.map",
+    "main.js": "https://koronawirus.lol/static/js/main.caa7abc7.chunk.js",
+    "main.js.map": "https://koronawirus.lol/static/js/main.caa7abc7.chunk.js.map",
+    "runtime-main.js": "https://koronawirus.lol/static/js/runtime-main.e99667e9.js",
+    "runtime-main.js.map": "https://koronawirus.lol/static/js/runtime-main.e99667e9.js.map",
+    "static/js/2.893395f2.chunk.js": "https://koronawirus.lol/static/js/2.893395f2.chunk.js",
+    "static/js/2.893395f2.chunk.js.map": "https://koronawirus.lol/static/js/2.893395f2.chunk.js.map",
+    "static/js/3.380441c6.chunk.js": "https://koronawirus.lol/static/js/3.380441c6.chunk.js",
+    "static/js/3.380441c6.chunk.js.map": "https://koronawirus.lol/static/js/3.380441c6.chunk.js.map",
     "index.html": "https://koronawirus.lol/index.html",
     "static/css/main.59208324.chunk.css.map": "https://koronawirus.lol/static/css/main.59208324.chunk.css.map",
-    "static/js/2.987e3065.chunk.js.LICENSE.txt": "https://koronawirus.lol/static/js/2.987e3065.chunk.js.LICENSE.txt",
+    "static/js/2.893395f2.chunk.js.LICENSE.txt": "https://koronawirus.lol/static/js/2.893395f2.chunk.js.LICENSE.txt",
     "static/media/data.8287c738.tsv": "https://koronawirus.lol/static/media/data.8287c738.tsv"
   },
   "entrypoints": [
-    "static/js/runtime-main.3003f9e1.js",
-    "static/js/2.987e3065.chunk.js",
+    "static/js/runtime-main.e99667e9.js",
+    "static/js/2.893395f2.chunk.js",
     "static/css/main.59208324.chunk.css",
-    "static/js/main.e2df0a40.chunk.js"
+    "static/js/main.caa7abc7.chunk.js"
   ]
 }

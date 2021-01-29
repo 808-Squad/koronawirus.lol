@@ -2,9 +2,17 @@
   "short_name": "Generator obostrzeń COVID-19",
   "name": "Generator obostrzeń COVID-19",
   "icons": [
+    {
+      "src":"/android-chrome-192x192.png",
+      "sizes":"192x192","type":"image/png"
+    },
+    {
+      "src":"/android-chrome-512x512.png",
+      "sizes":"512x512","type":"image/png"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0051A2",
+  "background_color": "#0051A2"
 }
