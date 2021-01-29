@@ -143,18 +143,21 @@ function shuffle(array) {
 function App() {
   const [sentences, setSentences] = useState(null)
 
-  const sentenceItems = [
-    (sentences => (<Sentence>Hotele są dostępne tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
+  const optionalSentences = [
     (sentences => (<Sentence>Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
-    (sentences => (<Sentence>W zgromadzeniach może uczestniczyć maksymalnie {sentences[7]} osób (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
-    (sentences => (<Sentence>Zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
-    (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} i {sentences[14]}, za to otwarte są {sentences[15]} oraz {sentences[16]}, ale tylko w {sentences[17]}.</Sentence>)),
     (sentences => (<Sentence>Restauracje i bary są {sentences[18]}, pod warunkiem {sentences[19]}.</Sentence>)),
-    (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]}, oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
     (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
-    (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
     (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
     (sentences => (<Sentence>W autobusach może być zajęte max. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+  ]
+
+  const obligatorySentences = [
+    (sentences => (<Sentence>Hotele są dostępne tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
+    (sentences => (<Sentence>W zgromadzeniach może uczestniczyć maksymalnie {sentences[7]} osób (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
+    (sentences => (<Sentence>Zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
+    (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
+    (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]}, oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
+    (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} i {sentences[14]}, za to otwarte są {sentences[15]} oraz {sentences[16]}, ale tylko w {sentences[17]}.</Sentence>))
   ]
 
   const dateOpts = {
@@ -162,7 +165,15 @@ function App() {
     month: 'long',
     year: 'numeric'
   };
+
   const date = (new Date()).toLocaleDateString('pl-PL', dateOpts);
+
+  const shuffledOptionalSentences = shuffle(optionalSentences);
+  const finalSentences = [
+    ...obligatorySentences,
+    shuffledOptionalSentences[0],
+    shuffledOptionalSentences[1]
+  ];
 
   return (
       <Container>
@@ -181,7 +192,7 @@ function App() {
         </SentenceHeader>
         {sentences && (
           <>
-          {shuffle(sentenceItems).map(it => it(sentences))}
+          {shuffle(finalSentences).map(it => it(sentences))}
           <Footer>Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a></Footer>
           </>
         )}
