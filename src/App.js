@@ -154,7 +154,7 @@ function App() {
     (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
     (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
     (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
-    (sentences => (<Sentence>W autobusach może być zajęte max. {Math.floor(60 * Number(sentences[31]) / 100)} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+    (sentences => (<Sentence>W autobusach może być zajęte max. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
   ]
 
   const dateOpts = {
