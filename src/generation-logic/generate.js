@@ -1,7 +1,7 @@
 import data_path from '../data.tsv';
 
-const QUARANTINE_MIN = 5;
-const QUARANTINE_MAX = 31;
+const QUARANTINE_MIN = 7;
+const QUARANTINE_MAX = 14;
 
 let data = null;
 
