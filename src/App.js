@@ -168,7 +168,7 @@ function App() {
       <Container>
         <TopBar />
         <LogoContainer>
-        <Logo src="logo.png" />
+        <Logo src="logo.jpg" />
         <Header>
           <h1>Generator obostrzeń COVID-19</h1>
           <SubHeader>Sprawdź, co dzisiaj wolno, a czego nie</SubHeader>
