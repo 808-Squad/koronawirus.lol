@@ -72,6 +72,13 @@ function bus_seats(percentage) {
     return Math.floor(60 * Number(percentage) / 100);
 }
 
+function getRestaurantState(value1, value2) {
+    if (value1.includes("zamknięte")) {
+        return ".";
+    }
+    return `, pod warunkiem ${value2}.`;
+}
+
 export default function generate() {
     let arr = [];
     [arr[0], arr[1], arr[2], arr[3]] = getRandomRange(0, 3, data);
@@ -83,7 +90,7 @@ export default function generate() {
     [arr[12], arr[13], arr[14], arr[15], arr[16]] = getRandomRange(12, 16, data);
     arr[17] = getRandom(17, data);
     arr[18] = getRandom(18, data);
-    arr[19] = getRandom(19, data);
+    arr[19] = getRestaurantState(arr[18], getRandom(19, data));
     arr[20] = getRandom(20, data);
     arr[21] = getRandom(21, data);
     arr[22] = getRandom(22, data);
