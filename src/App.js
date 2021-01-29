@@ -199,7 +199,10 @@ function App(props) {
         {sentences && (
           <>
           {shuffle(finalSentences).map(it => it(sentences))}
-          <Footer>Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a></Footer>
+          <Footer>
+            Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
+            <div>Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+          </Footer>
           </>
         )}
         </SentencesContainer>
