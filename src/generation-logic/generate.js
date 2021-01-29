@@ -30,6 +30,10 @@ function quarantine_decision() {
     }
 }
 
+function bus_seats(percentage) {
+    return Math.floor(60 * Number(percentage) / 100);
+}
+
 export default function generate() {
     let arr = data.map(arr => {
         arr = arr.split(',').filter(e => e);
@@ -39,6 +43,7 @@ export default function generate() {
         return arr[rnd_index].replace("\"", "");
     });
     arr[6] = quarantine_decision();
+    arr[32] = bus_seats(arr[31]);
     return arr;
     // return [
     //     'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
