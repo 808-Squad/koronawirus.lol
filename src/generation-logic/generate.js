@@ -55,7 +55,7 @@ function getRandom(n, data) {
     return arr[idx];
 }
 
-function quarantine_decision() {
+function getQuarantineDecision() {
     let rnd = Math.random();
     if (rnd <= 0.25) {
         return "zwolnione z kwarantanny";
@@ -67,7 +67,7 @@ function quarantine_decision() {
     }
 }
 
-function bus_seats(percentage) {
+function getBusSeatsNumber(percentage) {
     return Math.floor(60 * Number(percentage) / 100);
 }
 
@@ -83,7 +83,7 @@ export default function generate() {
     [arr[0], arr[1], arr[2], arr[3]] = getRandomRange(0, 3, data);
     arr[4] = getRandom(4, data);
     arr[5] = getRandom(5, data);
-    arr[6] = quarantine_decision();
+    arr[6] = getQuarantineDecision();
     arr[7] = getRandom(7, data);
     [arr[8], arr[9], arr[10], arr[11]] = getRandomRange(8, 11, data);
     [arr[12], arr[13], arr[14], arr[15], arr[16]] = getRandomRange(12, 16, data);
@@ -101,6 +101,6 @@ export default function generate() {
     arr[29] = getRandom(29, data);
     arr[30] = getRandom(30, data);
     arr[31] = getRandom(31, data);
-    arr[32] = bus_seats(arr[31]);
+    arr[32] = getBusSeatsNumber(arr[31]);
     return arr;
 }
