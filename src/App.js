@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React, { useState } from 'react';
 import generate from './generation-logic/generate'
+import { Media } from 'react-breakpoints';
 
 const Container = styled.div`
   display: flex;
@@ -27,13 +28,6 @@ const Header = styled.div`
   @media (max-width: 768px) {
     top: 30px;
   }
-`
-
-const SubHeader = styled.p`
-   display: block;
-   @media (max-width: 768px) {
-     display: none;
-   }
 `
 
 const TopBar = styled.div`
@@ -140,7 +134,7 @@ function shuffle(array) {
   return array;
 }
 
-function App() {
+function App(props) {
   const [sentences, setSentences] = useState(null)
 
   const optionalSentences = [
@@ -175,6 +169,8 @@ function App() {
     shuffledOptionalSentences[1]
   ];
 
+  const { breakpoints, currentBreakpoint } = props;
+
   return (
       <Container>
         <TopBar />
@@ -182,7 +178,17 @@ function App() {
         <Logo src="logo.jpg" />
         <Header>
           <h1>Generator obostrzeń COVID-19</h1>
-          <SubHeader>Sprawdź, co dzisiaj wolno, a czego nie</SubHeader>
+            <Media>
+              {({ breakpoints, currentBreakpoint }) => {
+                console.log(breakpoints[currentBreakpoint])
+                return breakpoints[currentBreakpoint] > breakpoints.mobile ? (
+                  <p>Sprawdź, co dzisiaj wolno, a czego nie</p>
+                ) : (
+                  <></>
+                )
+              }
+              }
+            </Media>
           </Header>
         </LogoContainer>
         <StyledButton onClick={() => setSentences(generate())}>GENERUJ</StyledButton>
