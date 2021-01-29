@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ReactBreakpoints from 'react-breakpoints'
+
+const breakpoints = {
+  mobile: 750,
+  desktop: 1000
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReactBreakpoints breakpoints={breakpoints}>
+      <App />
+    </ReactBreakpoints>
   </React.StrictMode>,
   document.getElementById('root')
 );
