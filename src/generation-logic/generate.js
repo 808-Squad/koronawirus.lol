@@ -37,12 +37,11 @@ function getRandomRange(first, last, data) {
     for (let i = first; i < last; i++) {
         arr = arr.concat(data[i]);
     }
-    const len = arr.length;
     shuffleArray(arr);
 
     const result = [];
     for (let i = 0; i < delta; i++) {
-        const idx = Math.floor(Math.random() * (len - 1));
+        const idx = Math.floor(Math.random() * (arr.length - 1));
         result.push(arr.splice(idx, 1));
     }
     return result;
