@@ -12,22 +12,25 @@ const Container = styled.div`
   align-items: center;
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
-  // overflow-y: scroll;
-@media (min-width: ${breakpoints.xl}px) {
-}
+  overflow-y: scroll;
 `
 
 const TopBar = styled.div`
   background-color: rgb(255, 198, 5);
-  // min-height: 30px;
   width: 100vw;
-  padding-left: 10px;
+  padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
   font-weight: bold;
-@media (min-width: ${breakpoints.xl}px) {
-
-}
+  @media (min-width: ${breakpoints.lg}px) {
+    padding-left: 30px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    font-size: 18px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    font-size: 26px;
+  }
 `
 
 const LogoContainer = styled.div`
@@ -37,46 +40,129 @@ const LogoContainer = styled.div`
   // justify-content: center;
   align-items: center;
   height: 150px;
-@media (min-width: ${breakpoints.xl}px) {
-
-}
+  @media (min-width: ${breakpoints.md}px) {
+    height: 200px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    height: 300px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    height: 400px;
+  }
 `
 
 const Logo = styled.img`
   height: 100%;
-@media (min-width: ${breakpoints.xl}px) {
-  
-}
 `
 
 const Header = styled.div`
-  color: white;
-  min-height: 15vh;
-  font-weight: bold;
   position: absolute;
+  color: white;
+  font-weight: bold;
   max-width: 100vw;
+  width: 100vw;
   text-align: center;
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
   justify-content: center;
   align-items: center;
-@media (min-width: ${breakpoints.xl}px) {
-  padding: 10px;
-  top: 24px
-}
 `
 
-const HeaderTitle = styled.h1`
+const HeaderTitle = styled.div`
+  margin: 6px;
   font-size: 24px;
+  max-width: 300px;
+  @media (min-width: ${breakpoints.md}px) {
+    max-width: 90vw;
+    font-size: 36px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    font-size: 56px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    font-size: 72px;
+  }
 `
 
 const HeaderSub = styled.p`
-@media (min-width: ${breakpoints.xl}px) {
+  margin: 6px;
+  font-size: 16px;
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 20px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    font-size: 28px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    font-size: 36px;
+  }
+`
+
+const SentencesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 auto;
+  width: 90vw;
+  @media (min-width: ${breakpoints.md}px) {
+    width: 600px;
+  }
+  @media (min-width: ${breakpoints.lg}px) {
+    width: 750px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    width: 900px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    width: 1400px;
+  }
+`
+
+const SentenceHeader = styled.h2`
+  font-size: 18px;
+  width: 100%;
+  margin-top: 20px;
+  @media (min-width: ${breakpoints.md}px) {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    margin-top: 45px;
+    font-size: 24px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    margin-top: 60px;
+    font-size: 36px;
+  }
+`
+const SentenceList = styled.ul`
+  list-style-position: inside;
+  padding-left: 0;
   margin: 0;
-  font-size: 24px;
-}
+  @media (min-width: ${breakpoints.md}px) {
+    padding-left: 1.5em;
+    list-style-position: outside;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    font-size: 20px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    font-size: 30px;
+  }
+`
+
+const Sentence = styled.li`
+  margin: 10px 0;
+  @media (min-width: ${breakpoints.lg}px) {
+    margin: 16px 0;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    margin: 20px 0;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    margin: 28px 0;
+  }
 `
 
 const StyledButton = styled.button`
@@ -87,44 +173,23 @@ const StyledButton = styled.button`
   font-size: 18px;
   font-weight: bold;
   min-width: 150px;
+  max-width: 150px;
   min-height: 30px;
+  max-height: 30px;
   margin: 10px;
   &:hover {
     background-color: rgb(4, 59, 116);
     color: white;
     border-radius: 10px;
   }
-@media (min-width: ${breakpoints.xl}px) {
   cursor: pointer;
-}
-`
-
-const SentencesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 0 auto;
-  padding: 0 15px;
-@media (min-width: ${breakpoints.xl}px) {
-
-}
-`
-
-const SentenceHeader = styled.h2`
-  font-size: 18px;
-@media (min-width: ${breakpoints.xl}px) {
-  font-size: initial;
-}
-`
-
-const Sentence = styled.li`
-  display: list-item;
-  margin: 5px 0;
-  padding-left: 1.5em;
-  text-indent: -1.5em;
-@media (min-width: ${breakpoints.xl}px) {
-  font-size: 18px;
-}
+  @media (min-width: ${breakpoints.xxxl}px) {
+    font-size: 30px;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 60px;
+    max-height: 60px;
+  }
 `
 
 const Footer = styled.div`
@@ -141,10 +206,6 @@ const Footer = styled.div`
   text-align: center;
   width: 100vw;
   flex-shrink: 0;
-  // bottom: 0;
-@media (min-width: ${breakpoints.xl}px) {
-  margin: 10px;
-}
 `
 
 function shuffle(array) {
@@ -218,7 +279,7 @@ function App(props) {
             <Media>
               {({ breakpoints, currentBreakpoint }) => {
                 console.log(breakpoints[currentBreakpoint])
-                return breakpoints[currentBreakpoint] >= breakpoints.md ? (
+                return breakpoints[currentBreakpoint] >= breakpoints.sm ? (
                   <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
                 ) : (
                   <></>
@@ -232,9 +293,9 @@ function App(props) {
             Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
           </SentenceHeader>
           {sentences && (
-            <>
+            <SentenceList>
             {shuffle(finalSentences).map(it => it(sentences))}
-            </>
+            </SentenceList>
           )}
           <StyledButton onClick={buttonAction}>GENERUJ</StyledButton>
         </SentencesContainer>
