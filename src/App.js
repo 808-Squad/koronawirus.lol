@@ -13,6 +13,7 @@ const Container = styled.div`
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 `
 
 const TopBar = styled.div`
@@ -228,6 +229,11 @@ function shuffle(array) {
 }
 
 function App(props) {
+  /*
+   * Format:
+   *  sentences[n]          - value for sentence `n`
+   *  sentences['meta'][n]  - additional data for sentence `n`
+   */
   const [sentences, setSentences] = useState(null)
 
   const optionalSentences = [
@@ -240,7 +246,7 @@ function App(props) {
 
   const obligatorySentences = [
     (sentences => (<Sentence>Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
-    (sentences => (<Sentence>W zgromadzeniach może uczestniczyć maksymalnie {sentences[7]} osób (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
+    (sentences => (<Sentence>W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maksymalnie {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
     (sentences => (<Sentence>Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
     (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
     (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]}, oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
