@@ -12,7 +12,7 @@ xhr.onload = () => {
         if (xhr.status === 200) {
             data = xhr.responseText.replace(/[\r]+/g, '').split('\n').filter(e => e);
             for (let i = 0; i < data.length; i++) {
-                data[i] = data[i].replace("\"", "").split('\t').filter(e => e);
+                data[i] = data[i].split('\t').filter(e => e);
             }
         } else {
             console.error(xhr.statusText);
