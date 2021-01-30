@@ -21,6 +21,10 @@ xhr.onload = () => {
 };
 xhr.send(null);
 
+Number.prototype.between = function(a, b) {
+  return a <= this && this <= b;
+};
+
 // Durstenfeld Shuffle from https://stackoverflow.com/a/12646864/6417161
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -79,28 +83,30 @@ function getRestaurantState(value1, value2) {
 }
 
 export default function generate() {
-    let arr = [];
-    [arr[0], arr[1], arr[2], arr[3]] = getRandomRange(0, 3, data);
-    arr[4] = getRandom(4, data);
-    arr[5] = getRandom(5, data);
-    arr[6] = getQuarantineDecision();
-    arr[7] = getRandom(7, data);
-    [arr[8], arr[9], arr[10], arr[11]] = getRandomRange(8, 11, data);
-    [arr[12], arr[13], arr[14], arr[15], arr[16]] = getRandomRange(12, 16, data);
-    arr[17] = getRandom(17, data);
-    arr[18] = getRandom(18, data);
-    arr[19] = getRestaurantState(arr[18], getRandom(19, data));
-    arr[20] = getRandom(20, data);
-    arr[21] = getRandom(21, data);
-    arr[22] = getRandom(22, data);
-    arr[23] = getRandom(23, data);
-    arr[24] = getRandom(24, data);
-    arr[25] = getRandom(25, data);
-    [arr[26], arr[27]] = getRandomRange(26, 27, data);
-    arr[28] = getRandom(28, data);
-    arr[29] = getRandom(29, data);
-    arr[30] = getRandom(30, data);
-    arr[31] = getRandom(31, data);
-    arr[32] = getBusSeatsNumber(arr[31]);
-    return arr;
+    let dict = {};
+    [dict[0], dict[1], dict[2], dict[3]] = getRandomRange(0, 3, data);
+    dict[4] = getRandom(4, data);
+    dict[5] = getRandom(5, data);
+    dict[6] = getQuarantineDecision();
+    dict[7] = getRandom(7, data);
+    [dict[8], dict[9], dict[10], dict[11]] = getRandomRange(8, 11, data);
+    [dict[12], dict[13], dict[14], dict[15], dict[16]] = getRandomRange(12, 16, data);
+    dict[17] = getRandom(17, data);
+    dict[18] = getRandom(18, data);
+    dict[19] = getRestaurantState(dict[18], getRandom(19, data));
+    dict[20] = getRandom(20, data);
+    dict[21] = getRandom(21, data);
+    dict[22] = getRandom(22, data);
+    dict[23] = getRandom(23, data);
+    dict[24] = getRandom(24, data);
+    dict[25] = getRandom(25, data);
+    [dict[26], dict[27]] = getRandomRange(26, 27, data);
+    dict[28] = getRandom(28, data);
+    dict[29] = getRandom(29, data);
+    dict[30] = getRandom(30, data);
+    dict[31] = getRandom(31, data);
+    dict[32] = getBusSeatsNumber(dict[31]);
+    dict['meta'] = {};
+    dict['meta'][7] = (Number(dict[7]) % 10).between(2, 4) ? ['mogą', 'osoby'] : ['może', 'osób'];
+    return dict;
 }
