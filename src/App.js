@@ -171,12 +171,10 @@ const StyledButton = styled.button`
   color: rgb(4, 59, 116);
   border: 3px solid;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  min-width: 150px;
-  max-width: 150px;
+  padding: 0 1em;
   min-height: 30px;
-  max-height: 30px;
   margin: 10px;
   &:hover {
     background-color: rgb(4, 59, 116);
@@ -184,12 +182,16 @@ const StyledButton = styled.button`
     border-radius: 10px;
   }
   cursor: pointer;
+  @media (min-width: ${breakpoints.md}px) {
+    padding: 0 2em;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    font-size: 20px;
+    min-height: 40px;
+  }
   @media (min-width: ${breakpoints.xxxl}px) {
     font-size: 30px;
-    min-width: 250px;
-    max-width: 250px;
     min-height: 60px;
-    max-height: 60px;
   }
 `
 
@@ -235,6 +237,7 @@ function App(props) {
    *  sentences['meta'][n]  - additional data for sentence `n`
    */
   const [sentences, setSentences] = useState(null)
+  const [buttonText, setButtonText] = useState("GENERUJ")
 
   const optionalSentences = [
     (sentences => (<Sentence>Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
@@ -255,6 +258,7 @@ function App(props) {
 
   const buttonAction = () => {
     setSentences(generate())
+    setButtonText("GENERUJ NOWE")
     document.getElementById('topBar').scrollIntoView();
   }
 
@@ -303,7 +307,7 @@ function App(props) {
             {shuffle(finalSentences).map(it => it(sentences))}
             </SentenceList>
           )}
-          <StyledButton onClick={buttonAction}>GENERUJ</StyledButton>
+          <StyledButton onClick={buttonAction}>{buttonText}</StyledButton>
         </SentencesContainer>
         <Footer>
           Ta strona to <b>żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
