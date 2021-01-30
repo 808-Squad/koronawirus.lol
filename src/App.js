@@ -2,117 +2,149 @@ import styled from 'styled-components'
 import React, { useState } from 'react';
 import generate from './generation-logic/generate'
 import { Media } from 'react-breakpoints';
+import breakpoints from './breakpoints.js';
+
 
 const Container = styled.div`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+  // overflow-y: scroll;
+@media (min-width: ${breakpoints.xl}px) {
+}
+`
+
+const TopBar = styled.div`
+  background-color: rgb(255, 198, 5);
+  // min-height: 30px;
+  width: 100vw;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+@media (min-width: ${breakpoints.xl}px) {
+
+}
+`
+
+const LogoContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  height: 150px;
+@media (min-width: ${breakpoints.xl}px) {
+
+}
+`
+
+const Logo = styled.img`
   height: 100%;
+@media (min-width: ${breakpoints.xl}px) {
+  
+}
 `
 
 const Header = styled.div`
   color: white;
   min-height: 15vh;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
+  font-weight: bold;
   position: absolute;
-  top: 50px;
-  max-width: 50vh;
-  @media (max-width: 768px) {
-    top: 30px;
-  }
+  max-width: 100vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+@media (min-width: ${breakpoints.xl}px) {
+  padding: 10px;
+  top: 24px
+}
 `
 
-const TopBar = styled.div`
-    background-color: rgb(255, 198, 5);
-    min-height: 20px;
-    width: 100vw;
+const HeaderTitle = styled.h1`
+  font-size: 24px;
+`
+
+const HeaderSub = styled.p`
+@media (min-width: ${breakpoints.xl}px) {
+  margin: 0;
+  font-size: 24px;
+}
 `
 
 const StyledButton = styled.button`
-   background-color: white;
-   border: 3px solid;
-   color: rgb(4, 59, 116);
-   font-size: 20px;
-   max-width: 200px;
-   border-radius: 4px;
-   min-width: 200px;
-   margin: 20px;
-   min-height: 40px;
-   font-weight: bold;
-   cursor: pointer;
-   &:hover {
-     background-color: rgb(4, 59, 116);
-     color: white;
-     border-radius: 10px;
-   }
+  background-color: white;
+  color: rgb(4, 59, 116);
+  border: 3px solid;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 150px;
+  min-height: 30px;
+  margin: 10px;
+  &:hover {
+    background-color: rgb(4, 59, 116);
+    color: white;
+    border-radius: 10px;
+  }
+@media (min-width: ${breakpoints.xl}px) {
+  cursor: pointer;
+}
 `
 
 const SentencesContainer = styled.div`
-  height: 150vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 1000px;
-  // padding: 20px !important;
-  @media (max-width: 1100px) {
-    width: 700px;
-  }
-  @media (max-width: 768px) {
-    width: 90%;
-  }
+  align-items: center;
+  flex: 1 0 auto;
+  padding: 0 15px;
+@media (min-width: ${breakpoints.xl}px) {
+
+}
 `
 
 const SentenceHeader = styled.h2`
-
+  font-size: 18px;
+@media (min-width: ${breakpoints.xl}px) {
+  font-size: initial;
+}
 `
 
 const Sentence = styled.li`
-  margin: 15px;
-  font-size: 22px;
-  @media (max-width: 768px) {
-    font-size: 16px;
-  }
+  display: list-item;
+  margin: 5px 0;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+@media (min-width: ${breakpoints.xl}px) {
+  font-size: 18px;
+}
 `
 
 const Footer = styled.div`
-    margin-top: 1rem;
-    padding: 0.3rem;
-    background-color: white;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 11px;
-    font-style: italic;
-    border-top: 1px solid;
-    border-color: red;
-    clear: both;
-    position: relative;
-    height: 20px;
-    text-align: center;
-    max-width: 80vh;
-    margin: 10px;
-`
-
-const LogoContainer = styled.div`
-   // max-height: 300px;
-   position: relative;
-   display: flex;
-   justify-content: center;
-   @media (max-width: 768px) {
-    max-width: 65vh;
-    max-height: 200px;
-  }
-`
-
-const Logo = styled.img`
-
+  margin-top: 1rem;
+  padding: 0.3rem;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 10px;
+  font-style: italic;
+  border-top: 1px solid;
+  border-color: red;
+  clear: both;
+  text-align: center;
+  width: 100vw;
+  flex-shrink: 0;
+  // bottom: 0;
+@media (min-width: ${breakpoints.xl}px) {
+  margin: 10px;
+}
 `
 
 function shuffle(array) {
@@ -146,13 +178,18 @@ function App(props) {
   ]
 
   const obligatorySentences = [
-    (sentences => (<Sentence>Hotele są dostępne tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
+    (sentences => (<Sentence>Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
     (sentences => (<Sentence>W zgromadzeniach może uczestniczyć maksymalnie {sentences[7]} osób (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
-    (sentences => (<Sentence>Zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
+    (sentences => (<Sentence>Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
     (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
     (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]}, oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
-    (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} i {sentences[14]}, za to otwarte są {sentences[15]} oraz {sentences[16]}, ale tylko w {sentences[17]}.</Sentence>))
+    (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} i {sentences[14]}. Otwarte zostaną {sentences[15]} oraz {sentences[16]}, ale wyłącznie w {sentences[17]}.</Sentence>))
   ]
+
+  const buttonAction = () => {
+    setSentences(generate())
+    document.getElementById('topBar').scrollIntoView();
+  }
 
   const dateOpts = {
     day: 'numeric',
@@ -173,39 +210,38 @@ function App(props) {
 
   return (
       <Container>
-        <TopBar />
+        <TopBar id="topBar">Koronawirus: ważne informacje</TopBar>
         <LogoContainer>
-        <Logo src="logo.jpg" />
-        <Header>
-          <h1>Generator obostrzeń COVID-19</h1>
+          <Logo src="logo.jpg" />
+          <Header>
+            <HeaderTitle>Generator obostrzeń COVID-19</HeaderTitle>
             <Media>
               {({ breakpoints, currentBreakpoint }) => {
                 console.log(breakpoints[currentBreakpoint])
-                return breakpoints[currentBreakpoint] > breakpoints.mobile ? (
-                  <p>Sprawdź, co dzisiaj wolno, a czego nie</p>
+                return breakpoints[currentBreakpoint] >= breakpoints.md ? (
+                  <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
                 ) : (
                   <></>
                 )
-              }
-              }
+              }}
             </Media>
           </Header>
         </LogoContainer>
-        <StyledButton onClick={() => setSentences(generate())}>GENERUJ</StyledButton>
         <SentencesContainer>
-        <SentenceHeader>
-          Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
-        </SentenceHeader>
-        {sentences && (
-          <>
-          {shuffle(finalSentences).map(it => it(sentences))}
-          <Footer>
-            Ta strona to żart. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
-            <div>Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-          </Footer>
-          </>
-        )}
+          <SentenceHeader>
+            Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
+          </SentenceHeader>
+          {sentences && (
+            <>
+            {shuffle(finalSentences).map(it => it(sentences))}
+            </>
+          )}
+          <StyledButton onClick={buttonAction}>GENERUJ</StyledButton>
         </SentencesContainer>
+        <Footer>
+          Ta strona to <b>żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
+          Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </Footer>
       </Container>
   );
 }
