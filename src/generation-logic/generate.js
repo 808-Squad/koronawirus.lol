@@ -1,4 +1,5 @@
-import data_path from '../data.tsv';
+import data_path from './data.tsv';
+import { shuffleArray } from '../utils'
 
 const QUARANTINE_MIN = 7;
 const QUARANTINE_MAX = 14;
@@ -24,14 +25,6 @@ xhr.send(null);
 Number.prototype.between = function(a, b) {
   return a <= this && this <= b;
 };
-
-// Durstenfeld Shuffle from https://stackoverflow.com/a/12646864/6417161
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
 
 function getRandomRange(first, last, data) {
     last += 1;  // Last index in slices etc. is usually 1 higher than what you need

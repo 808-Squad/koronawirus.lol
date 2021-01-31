@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './ui/App';
 import reportWebVitals from './reportWebVitals';
 import ReactBreakpoints from 'react-breakpoints';
-import breakpoints from './breakpoints.js';
+import breakpoints from './ui/breakpoints.js';
 
 
 ReactDOM.render(
