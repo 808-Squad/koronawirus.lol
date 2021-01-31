@@ -19,18 +19,42 @@ const Container = styled.div`
 const TopBar = styled.div`
   background-color: rgb(255, 198, 5);
   width: 100vw;
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-weight: bold;
+  min-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: ${breakpoints.md}px) {
+    min-height: 30px;
+  }
   @media (min-width: ${breakpoints.lg}px) {
-    padding-left: 30px;
+    min-height: 30px;
   }
   @media (min-width: ${breakpoints.xxl}px) {
-    font-size: 18px;
+    min-height: 40px;
   }
   @media (min-width: ${breakpoints.xxxl}px) {
-    font-size: 26px;
+    min-height: 60px;
+  }
+`
+
+const TopBarText = styled.div`
+  font-weight: bold;
+  font-size: 14px;
+  width: 95vw;
+  @media (min-width: ${breakpoints.md}px) {
+    width: 600px;
+  }
+  @media (min-width: ${breakpoints.lg}px) {
+    width: 750px;
+  }
+  @media (min-width: ${breakpoints.xxl}px) {
+    width: 900px;
+    font-size: 22px;
+  }
+  @media (min-width: ${breakpoints.xxxl}px) {
+    width: 1400px;
+    font-size: 32px;
   }
 `
 
@@ -43,6 +67,9 @@ const LogoContainer = styled.div`
   height: 150px;
   @media (min-width: ${breakpoints.md}px) {
     height: 200px;
+  }
+  @media (min-width: ${breakpoints.xl}px) {
+    height: 230px;
   }
   @media (min-width: ${breakpoints.xxl}px) {
     height: 300px;
@@ -78,6 +105,9 @@ const HeaderTitle = styled.div`
     max-width: 90vw;
     font-size: 36px;
   }
+  @media (min-width: ${breakpoints.xl}px) {
+    font-size: 42px;
+  }
   @media (min-width: ${breakpoints.xxl}px) {
     font-size: 56px;
   }
@@ -96,7 +126,7 @@ const HeaderSub = styled.p`
     font-size: 28px;
   }
   @media (min-width: ${breakpoints.xxxl}px) {
-    font-size: 36px;
+    font-size: 40px;
   }
 `
 
@@ -168,20 +198,22 @@ const Sentence = styled.li`
 
 const StyledButton = styled.button`
   background-color: white;
-  color: rgb(4, 59, 116);
+  color: rgb(213, 35, 63);
   border: 3px solid;
-  border-radius: 4px;
+  border-radius: 5px;
+  border-color: rgb(213, 35, 63);
   font-size: 16px;
   font-weight: bold;
   padding: 0 1em;
   min-height: 30px;
   margin: 10px;
-  &:hover {
-    background-color: rgb(4, 59, 116);
-    color: white;
-    border-radius: 10px;
-  }
   cursor: pointer;
+  outline: none;
+  &:hover {
+    background-color: rgb(213, 35, 63);
+    color: white;
+    // border-radius: 10px;
+  }
   @media (min-width: ${breakpoints.md}px) {
     padding: 0 2em;
   }
@@ -203,8 +235,7 @@ const Footer = styled.div`
   padding-right: 1rem;
   font-size: 10px;
   font-style: italic;
-  border-top: 1px solid;
-  border-color: red;
+  border-top: solid rgb(213, 35, 63) .1875rem;
   clear: both;
   text-align: center;
   width: 100vw;
@@ -281,7 +312,9 @@ function App(props) {
 
   return (
       <Container>
-        <TopBar id="topBar">Koronawirus: ważne informacje</TopBar>
+        <TopBar id="topBar">
+          <TopBarText>Koronawirus: ważne informacje</TopBarText>
+        </TopBar>
         <LogoContainer>
           <Logo src="logo.jpg" />
           <Header>
