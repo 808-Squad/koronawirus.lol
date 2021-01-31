@@ -46,7 +46,7 @@ export function collectEvent(uuid) {
          * Event Action: generate
          */
         "t=event",
-        "ec=test",
+        "ec=generation",
         "ea=generate"
     ]);
 
