@@ -28,7 +28,7 @@ const ShareButtons = ({ }) => (
             <FacebookShareButton url={url}>
                 <FacebookIcon size={32} round />
             </FacebookShareButton>
-            <button className="react-share__ShareButton" style={{ background: 'white', border: 0, margin: 0 }} onClick={() => {
+            <button className="react-share__ShareButton" style={{ background: 'white', border: 0, margin: 0, paddingLeft: 0 }} onClick={() => {
                 window.location.href = `fb-messenger://share?link=${url}`
             }}>
                 <FacebookMessengerIcon size={32} round />
