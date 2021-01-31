@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import generate from '../generation-logic/generate'
 import breakpoints from './breakpoints';
 import ShareButtons from './ShareButtons';
 import AppHeader from './AppHeader'
-import { collectStats, shuffleArray } from '../utils'
+import { collectEvent, collectStats, collectVisit, shuffleArray } from '../utils'
 
 const Container = styled.div`
   height: 100vh;
@@ -184,6 +184,10 @@ function App(props) {
   const [sentences, setSentences] = useState(null)
   const [buttonText, setButtonText] = useState("GENERUJ")
 
+  useEffect(() => {
+    collectVisit();
+  }, [])
+
   const optionalSentences = [
     (sentences => (<Sentence>Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
     (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
@@ -205,7 +209,7 @@ function App(props) {
     setSentences(generate())
     setButtonText("GENERUJ NOWE")
     document.getElementById('topBar').scrollIntoView();
-    collectStats();
+    collectEvent();
   }
 
   const dateOpts = {
