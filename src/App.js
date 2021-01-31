@@ -320,7 +320,7 @@ function App(props) {
 
   const optionalSentences = [
     (sentences => (<Sentence>Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
-    (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}</Sentence>)),
+    (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
     (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
     (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
     (sentences => (<Sentence>W autobusach może być zajęte maks. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))

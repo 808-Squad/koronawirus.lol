@@ -77,9 +77,9 @@ function getBusSeatsNumber(percentage) {
 
 function getRestaurantState(value1, value2) {
     if (value1.includes("zamknięte")) {
-        return ".";
+        return "";
     }
-    return `, pod warunkiem ${value2}.`;
+    return `, pod warunkiem ${value2}`;
 }
 
 export default function generate() {
