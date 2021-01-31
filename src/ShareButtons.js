@@ -15,6 +15,7 @@ import styled from 'styled-components';
 
 const ShareButtonContainer = styled.div`
     display: flex;
+    margin-top: 15px;
     & > button {
         margin-right: 5px;
     }
