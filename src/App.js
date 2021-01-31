@@ -273,11 +273,11 @@ const GithubIcon = styled.span`
   background-repeat: no-repeat;
 `
 
-const LikeIcon = styled.span`
+const StarIcon = styled.span`
   display: inline-block;
   width: 15px;
   height: 1em;
-  background-image: url('like.svg');
+  background-image: url('star.svg');
   background-position: center;
   background-repeat: no-repeat;
 `
@@ -388,7 +388,7 @@ function App(props) {
           <FooterText>
             <b>Ta strona to żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
             <br />
-            Zaserduszkuj <LikeIcon/> to na <GithubIcon/> <a href="https://github.com/808-Squad/koronawirus.lol">GitHubie</a>.
+            Zagwiazdkuj <StarIcon/> to na <GithubIcon/> <a href="https://github.com/808-Squad/koronawirus.lol">GitHubie</a>.
             <br />
             Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
           </FooterText>
