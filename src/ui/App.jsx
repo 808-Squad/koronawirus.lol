@@ -224,8 +224,6 @@ function App(props) {
 
   shuffleArray(finalSentences)
 
-  const { breakpoints, currentBreakpoint } = props;
-
   return (
       <Container>
         <AppHeader />
