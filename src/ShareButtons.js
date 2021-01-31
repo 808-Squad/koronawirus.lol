@@ -28,9 +28,11 @@ const ShareButtons = ({ }) => (
             <FacebookShareButton url={url}>
                 <FacebookIcon size={32} round />
             </FacebookShareButton>
-            <FacebookMessengerShareButton url={url}>
+            <button className="react-share__ShareButton" style={{ background: 'white', border: 0, margin: 0 }} onClick={() => {
+                window.location.href = `fb-messenger://share?link=${url}`
+            }}>
                 <FacebookMessengerIcon size={32} round />
-            </FacebookMessengerShareButton>
+            </button>
             <TwitterShareButton url={url}>
                 <TwitterIcon size={32} round />
             </TwitterShareButton>
