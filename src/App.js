@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import React, { useState } from 'react';
 import generate from './generation-logic/generate'
 import { Media } from 'react-breakpoints';
-import breakpoints from './breakpoints.js';
+import breakpoints from './breakpoints';
+import ShareButtons from './ShareButtons';
 
 
 const Container = styled.div`
@@ -382,6 +383,7 @@ function App(props) {
           )}
           <StyledButton onClick={buttonAction}>{buttonText}</StyledButton>
         </SentencesContainer>
+        <ShareButtons />
         <Footer>
           <FooterText>
             <b>Ta strona to żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
