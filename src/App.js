@@ -247,6 +247,13 @@ const FooterText = styled.footer`
   width: 95vw;
   font-size: 11px;
   font-style: italic;
+  a {
+      color: rgb(15, 55, 100);
+  }
+  a:visited {
+      color: rgb(213, 35, 63);
+  }
+
   @media (min-width: ${breakpoints.md}px) {
     font-size: 11px;
     width: 600px;
