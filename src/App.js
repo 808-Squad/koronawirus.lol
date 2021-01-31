@@ -323,14 +323,14 @@ function App(props) {
     (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}</Sentence>)),
     (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
     (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
-    (sentences => (<Sentence>W autobusach może być zajęte max. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+    (sentences => (<Sentence>W autobusach może być zajęte maks. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
   ]
 
   const obligatorySentences = [
     (sentences => (<Sentence>Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
-    (sentences => (<Sentence>W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maksymalnie {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
+    (sentences => (<Sentence>W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maks. {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
     (sentences => (<Sentence>Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
-    (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maksymalnie jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
+    (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maks. jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
     (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]}, oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
     (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} i {sentences[14]}. Otwarte zostaną {sentences[15]} oraz {sentences[16]}, ale wyłącznie w {sentences[17]}.</Sentence>))
   ]
