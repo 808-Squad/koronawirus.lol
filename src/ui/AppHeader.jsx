@@ -128,7 +128,6 @@ const AppHeader = ({ }) => (
                 <HeaderTitle>Generator obostrzeń COVID-19</HeaderTitle>
                 <Media>
                     {({ breakpoints, currentBreakpoint }) => {
-                        console.log(breakpoints[currentBreakpoint])
                         return breakpoints[currentBreakpoint] >= breakpoints.sm ? (
                             <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
                         ) : (
