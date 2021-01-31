@@ -4,7 +4,7 @@ import generate from '../generation-logic/generate'
 import breakpoints from './breakpoints';
 import ShareButtons from './ShareButtons';
 import AppHeader from './AppHeader'
-import { shuffleArray } from '../utils'
+import { collectStats, shuffleArray } from '../utils'
 
 const Container = styled.div`
   height: 100vh;
@@ -205,6 +205,7 @@ function App(props) {
     setSentences(generate())
     setButtonText("GENERUJ NOWE")
     document.getElementById('topBar').scrollIntoView();
+    collectStats();
   }
 
   const dateOpts = {
