@@ -48,8 +48,7 @@ function getRandom(n, data) {
     const arr = data[n];
     const len = arr.length;
     shuffleArray(arr);
-    const idx = Math.floor(Math.random() * (len - 1));
-    return arr[idx];
+    return arr[0];
 }
 
 function getQuarantineDecision() {
