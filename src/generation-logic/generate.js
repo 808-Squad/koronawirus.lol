@@ -56,7 +56,7 @@ function getRandom(n, data) {
 
 function getRandomRoundedPercentage(step = 5) {
     rnd = Math.random();
-    return PERCENTAGE_MIN + Math.floor(rnd * (PERCENTAGE_MAX + 1 - PERCENTAGE_MIN) / step) * step;
+    return PERCENTAGE_MIN + Math.floor(rnd * (PERCENTAGE_MAX + step - PERCENTAGE_MIN) / step) * step;
 }
 
 function getQuarantineDecision() {
