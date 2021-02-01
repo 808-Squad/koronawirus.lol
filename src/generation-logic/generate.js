@@ -54,7 +54,7 @@ function getRandom(n, data) {
     return arr[0];
 }
 
-function getRandomRoundedPercentage(step = 5) {
+function getRandomRoundedPercentage(step) {
     rnd = Math.random();
     return PERCENTAGE_MIN + Math.floor(rnd * (PERCENTAGE_MAX + step - PERCENTAGE_MIN) / step) * step;
 }
