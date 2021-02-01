@@ -1,6 +1,9 @@
 import data_path from './data.tsv';
 import { shuffleArray } from '../utils'
 
+const PERCENTAGE_MIN = 10;
+const PERCENTAGE_MAX = 90;
+
 const QUARANTINE_MIN = 7;
 const QUARANTINE_MAX = 14;
 
@@ -51,6 +54,11 @@ function getRandom(n, data) {
     return arr[0];
 }
 
+function getRandomRoundedPercentage(step = 5) {
+    rnd = Math.random();
+    return PERCENTAGE_MIN + Math.floor(rnd * (PERCENTAGE_MAX - PERCENTAGE_MIN) / step) * step;
+}
+
 function getQuarantineDecision() {
     let rnd = Math.random();
     if (rnd <= 0.25) {
@@ -96,7 +104,7 @@ export default function generate() {
     dict[28] = getRandom(28, data);
     dict[29] = getRandom(29, data);
     dict[30] = getRandom(30, data);
-    dict[31] = getRandom(31, data);
+    dict[31] = getRandomRoundedPercentage(5);
     dict[32] = getBusSeatsNumber(dict[31]);
     dict['meta'] = {};
     dict['meta'][7] = (Number(dict[7]) % 10).between(2, 4) ? ['mogą', 'osoby'] : ['może', 'osób'];
