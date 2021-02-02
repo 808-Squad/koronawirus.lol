@@ -55,18 +55,15 @@ function getRandom(n, data) {
 }
 
 function getRandomRoundedPercentage(step) {
-    let rnd = Math.random();
-    return PERCENTAGE_MIN + Math.floor(rnd * (PERCENTAGE_MAX + step - PERCENTAGE_MIN) / step) * step;
+    return PERCENTAGE_MIN + Math.floor(Math.random() * (PERCENTAGE_MAX + step - PERCENTAGE_MIN) / step) * step;
 }
 
 function getQuarantineDecision() {
-    let rnd = Math.random();
-    if (rnd <= 0.25) {
+    if (Math.random() <= 0.25) {
         return "zwolnione z kwarantanny";
     }
     else {
-        rnd = Math.random();
-        const quarantine_days = QUARANTINE_MIN + Math.floor(rnd * (QUARANTINE_MAX + 1 - QUARANTINE_MIN));
+        const quarantine_days = QUARANTINE_MIN + Math.floor(Math.random() * (QUARANTINE_MAX + 1 - QUARANTINE_MIN));
         return "zobowiązane do odbycia kwarantanny przez " + quarantine_days + " dni";
     }
 }
