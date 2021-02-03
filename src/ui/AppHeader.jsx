@@ -49,20 +49,24 @@ const LogoContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
   height: 150px;
+  min-height: 150px;
   @media (min-width: ${breakpoints.md}px) {
     height: 200px;
+    min-height: 200px;
   }
   @media (min-width: ${breakpoints.xl}px) {
     height: 230px;
+    min-height: 230px;
   }
   @media (min-width: ${breakpoints.xxl}px) {
     height: 300px;
+    min-height: 300px;
   }
   @media (min-width: ${breakpoints.xxxl}px) {
     height: 400px;
+    min-height: 400px;
   }
 `
 
