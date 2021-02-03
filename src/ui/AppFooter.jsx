@@ -72,6 +72,8 @@ const AppFooter = ({ }) => (
         Zagwiazdkuj <StarIcon/> to na <GithubIcon/> <a href="https://github.com/808-Squad/koronawirus.lol">GitHubie</a>.
         <br />
         Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        <br />
+        Aktualizacja 4.02.2021
       </FooterText>
     </Footer>
   </>
