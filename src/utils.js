@@ -10,6 +10,7 @@ export function shuffleArray(array) {
 
 const trackerId = "UA-188506897-1";
 const sessionUuid = uuidv4();
+let generationCounter = 0;
 const commonRequestParams = [
     /*
      * Proto version: 1
@@ -39,6 +40,7 @@ export function collectVisit(uuid) {
 }
 
 export function collectEvent(uuid) {
+    generationCounter += 1;
     const requestParams = commonRequestParams.concat([
         /*
          * Hit type: event
@@ -47,7 +49,8 @@ export function collectEvent(uuid) {
          */
         "t=event",
         "ec=generation",
-        "ea=generate"
+        "ea=generate",
+        `el=${generationCounter}`
     ]);
 
     let req = new XMLHttpRequest();
