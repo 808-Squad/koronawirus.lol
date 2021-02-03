@@ -75,6 +75,14 @@ function getRestaurantState(value1, value2) {
     return `, pod warunkiem ${value2}`;
 }
 
+function getSchoolGradeRange() {
+    const min = 1;
+    const max = 8;
+    const lo = min + Math.floor(Math.random() * (max - min));
+    const hi = lo + 1 + Math.floor(Math.random() * (max - lo));
+    return `${lo}-${hi}`;
+}
+
 export default function generate() {
     let dict = {};
     [dict[0], dict[1], dict[2], dict[3]] = getRandomRange(0, 3, data);
@@ -87,7 +95,7 @@ export default function generate() {
     dict[17] = getRandom(17, data);
     dict[18] = getRandom(18, data);
     dict[19] = getRestaurantState(dict[18], getRandom(19, data));
-    dict[20] = getRandom(20, data);
+    dict[20] = getSchoolGradeRange();
     dict[21] = getRandom(21, data);
     dict[22] = getRandom(22, data);
     dict[23] = getRandom(23, data);
