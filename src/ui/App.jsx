@@ -193,7 +193,7 @@ function App(props) {
     (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
     (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
     (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
-    (sentences => (<Sentence>W autobusach może być zajęte maks. {sentences[32]} miejsc siedzących (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+    (sentences => (<Sentence>W autobusach {sentences['meta'][32][0]} być zajęte maks. {sentences[32]} {sentences['meta'][32][1]} (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
   ]
 
   const obligatorySentences = [
