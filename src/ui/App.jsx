@@ -130,20 +130,20 @@ function App(props) {
   }, [])
 
   const optionalSentences = [
-    (sentences => (<Sentence>Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
-    (sentences => (<Sentence>Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
-    (sentences => (<Sentence>Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
-    (sentences => (<Sentence>W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
-    (sentences => (<Sentence>W autobusach {sentences['meta'][32][0]} być zajęte maks. {sentences[32]} {sentences['meta'][32][1]} (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+    (sentences => (<Sentence key="2">Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
+    (sentences => (<Sentence key="6">Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
+    (sentences => (<Sentence key="8">Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
+    (sentences => (<Sentence key="10">W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
+    (sentences => (<Sentence key="11">W autobusach {sentences['meta'][32][0]} być zajęte maks. {sentences[32]} {sentences['meta'][32][1]} (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
   ]
 
   const obligatorySentences = [
-    (sentences => (<Sentence>Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
-    (sentences => (<Sentence>W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maks. {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
-    (sentences => (<Sentence>Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
-    (sentences => (<Sentence>W {sentences[26]} i {sentences[27]} może przebywać maks. jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
-    (sentences => (<Sentence>Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]} oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
-    (sentences => (<Sentence>Zamknięte są {sentences[12]}, {sentences[13]} oraz {sentences[14]}. Otwarte zostaną {sentences[15]} oraz {sentences[16]}, ale wyłącznie w {sentences[17]}.</Sentence>))
+    (sentences => (<Sentence key="1">Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
+    (sentences => (<Sentence key="3">W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maks. {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
+    (sentences => (<Sentence key="4">Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
+    (sentences => (<Sentence key="9">W {sentences[26]} i {sentences[27]} może przebywać maks. jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
+    (sentences => (<Sentence key="7">Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]} oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
+    (sentences => (<Sentence key="5">Zamknięte są {sentences[12]}, {sentences[13]} oraz {sentences[14]}. Otwarte zostaną {sentences[15]} oraz {sentences[16]}, ale wyłącznie w {sentences[17]}.</Sentence>))
   ]
 
   const buttonAction = () => {
