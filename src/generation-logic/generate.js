@@ -101,5 +101,14 @@ export default function generate() {
     dict[32] = getBusSeatsNumber(dict[31]);
     dict['meta'] = {};
     dict['meta'][7] = (Number(dict[7]) % 10).between(2, 4) ? ['mogą', 'osoby'] : ['może', 'osób'];
+    dict['meta'][32] = (() => {
+        const n = Number(dict[32]);
+        if (n > 20 && (n % 10).between(2, 4)) {
+            return ['mogą', 'miejsca siedzące'];
+        }
+        else {
+            return ['może', 'miejsc siedzących'];
+        }
+    })();
     return dict;
 }
