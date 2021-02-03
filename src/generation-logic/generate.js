@@ -100,10 +100,18 @@ export default function generate() {
     dict[31] = getRandom(31, data);
     dict[32] = getBusSeatsNumber(dict[31]);
     dict['meta'] = {};
-    dict['meta'][7] = (Number(dict[7]) % 10).between(2, 4) ? ['mogą', 'osoby'] : ['może', 'osób'];
+    dict['meta'][7] = (() => {
+        const n = Number(dict[7]);
+        if ((n % 10).between(2, 4) && !(n % 100).between(12, 14)) {
+            return ['mogą', 'osoby'];
+        }
+        else {
+            return ['może', 'osób'];
+        }
+    })();
     dict['meta'][32] = (() => {
         const n = Number(dict[32]);
-        if (n > 20 && (n % 10).between(2, 4)) {
+        if ((n % 10).between(2, 4) && !(n % 100).between(12, 14)) {
             return ['mogą', 'miejsca siedzące'];
         }
         else {
