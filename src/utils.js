@@ -64,7 +64,6 @@ export function chooseLanguage() {
     const locale = getUserLocale().substr(0, 2)
 
     if (supportedLanguages.indexOf(locale) !== -1) {
-        console.log(locale)
         return locale
     } 
     // fall back to pl
