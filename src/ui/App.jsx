@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import generate from '../generation-logic/generate'
-import breakpoints from './breakpoints';
-import ShareButtons from './ShareButtons';
+import breakpoints from './breakpoints'
+import ShareButtons from './ShareButtons'
 import AppHeader from './AppHeader'
+import AppFooter from './AppFooter'
 import { collectEvent, collectStats, collectVisit, shuffleArray } from '../utils'
 
 const Container = styled.div`
@@ -99,7 +100,6 @@ const StyledButton = styled.button`
   &:hover {
     background-color: rgb(213, 35, 63);
     color: white;
-    // border-radius: 10px;
   }
   @media (min-width: ${breakpoints.md}px) {
     padding: 0 2em;
@@ -114,66 +114,7 @@ const StyledButton = styled.button`
   }
 `
 
-const Footer = styled.div`
-  margin-top: 1rem;
-  padding: 0.3rem;
-  background-color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-top: solid rgb(213, 35, 63) .1875rem;
-  clear: both;
-  width: 100vw;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 
-const FooterText = styled.footer`
-  width: 95vw;
-  font-size: 11px;
-  font-style: italic;
-  a {
-      color: rgb(15, 55, 100);
-  }
-  a:visited {
-      color: rgb(213, 35, 63);
-  }
-
-  @media (min-width: ${breakpoints.md}px) {
-    font-size: 11px;
-    width: 600px;
-  }
-  @media (min-width: ${breakpoints.lg}px) {
-    width: 750px;
-  }
-  @media (min-width: ${breakpoints.xxl}px) {
-    width: 900px;
-    font-size: 14px;
-  }
-  @media (min-width: ${breakpoints.xxxl}px) {
-    width: 1400px;
-    font-size: 20px;
-  }
-`
-
-const GithubIcon = styled.span`
-  display: inline-block;
-  width: 15px;
-  height: 1em;
-  background-image: url('github.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-`
-
-const StarIcon = styled.span`
-  display: inline-block;
-  width: 15px;
-  height: 1em;
-  background-image: url('star.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-`
 
 function App(props) {
   /*
@@ -185,7 +126,7 @@ function App(props) {
   const [buttonText, setButtonText] = useState("GENERUJ")
 
   useEffect(() => {
-    collectVisit();
+    collectVisit()
   }, [])
 
   const optionalSentences = [
@@ -208,8 +149,8 @@ function App(props) {
   const buttonAction = () => {
     setSentences(generate())
     setButtonText("GENERUJ NOWE")
-    document.getElementById('topBar').scrollIntoView();
-    collectEvent();
+    document.getElementById('topBar').scrollIntoView()
+    collectEvent()
   }
 
   const dateOpts = {
@@ -218,9 +159,9 @@ function App(props) {
     year: 'numeric'
   };
 
-  const date = (new Date()).toLocaleDateString('pl-PL', dateOpts);
+  const date = (new Date()).toLocaleDateString('pl-PL', dateOpts)
 
-  shuffleArray(optionalSentences);
+  shuffleArray(optionalSentences)
   const finalSentences = [
     ...obligatorySentences,
     optionalSentences[0],
@@ -230,31 +171,23 @@ function App(props) {
   shuffleArray(finalSentences)
 
   return (
-      <Container>
-        <AppHeader />
-        <SentencesContainer>
-          <SentenceHeader>
-            Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
-          </SentenceHeader>
-          {sentences && (
-            <SentenceList>
-            {finalSentences.map(it => it(sentences))}
-            </SentenceList>
-          )}
-          <StyledButton onClick={buttonAction}>{buttonText}</StyledButton>
-        </SentencesContainer>
-        <ShareButtons />
-        <Footer>
-          <FooterText>
-            <b>Ta strona to żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
-            <br />
-            Zagwiazdkuj <StarIcon/> to na <GithubIcon/> <a href="https://github.com/808-Squad/koronawirus.lol">GitHubie</a>.
-            <br />
-            Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-          </FooterText>
-        </Footer>
-      </Container>
+    <Container>
+      <AppHeader />
+      <SentencesContainer>
+        <SentenceHeader>
+          Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
+        </SentenceHeader>
+        {sentences && (
+          <SentenceList>
+          {finalSentences.map(it => it(sentences))}
+          </SentenceList>
+        )}
+        <StyledButton onClick={buttonAction}>{buttonText}</StyledButton>
+      </SentencesContainer>
+      <ShareButtons />
+      <AppFooter />
+    </Container>
   );
 }
 
-export default App;
+export default App
