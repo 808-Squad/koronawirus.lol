@@ -1,13 +1,13 @@
 import React from 'react'
-import breakpoints from './breakpoints';
-import styled from 'styled-components';
+import breakpoints from './breakpoints'
+import styled from 'styled-components'
 import { Media } from 'react-breakpoints'
 
 const TopBar = styled.div`
+  display: flex;
   background-color: rgb(255, 198, 5);
   width: 100vw;
   min-height: 30px;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -46,8 +46,8 @@ const TopBarText = styled.div`
 `
 
 const LogoContainer = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   height: 150px;
@@ -122,26 +122,28 @@ const HeaderSub = styled.p`
 `
 
 const AppHeader = ({ }) => (
-    <>
-        <TopBar id="topBar">
-            <TopBarText>Koronawirus: ważne informacje</TopBarText>
-        </TopBar>
-        <LogoContainer>
-            <Logo src="logo.jpg" />
-            <Header>
-                <HeaderTitle>Generator obostrzeń COVID-19</HeaderTitle>
-                <Media>
-                    {({ breakpoints, currentBreakpoint }) => {
-                        return breakpoints[currentBreakpoint] >= breakpoints.sm ? (
-                            <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
-                        ) : (
-                                <></>
-                            )
-                    }}
-                </Media>
-            </Header>
-        </LogoContainer>
-    </>
+  <>
+    <TopBar id="topBar">
+      <TopBarText>Koronawirus: ważne informacje</TopBarText>
+    </TopBar>
+    <LogoContainer>
+      <Logo src="logo.jpg" />
+      <Header>
+        <HeaderTitle>Generator obostrzeń COVID-19</HeaderTitle>
+        <Media>
+          {
+            ({ breakpoints, currentBreakpoint }) => {
+              return breakpoints[currentBreakpoint] >= breakpoints.sm ? (
+                <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
+              ) : (
+                <></>
+              )
+            }
+          }
+        </Media>
+      </Header>
+    </LogoContainer>
+  </>
 )
 
 export default AppHeader
