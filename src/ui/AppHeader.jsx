@@ -2,6 +2,8 @@ import React from 'react'
 import breakpoints from './breakpoints'
 import styled from 'styled-components'
 import { Media } from 'react-breakpoints'
+import { FormattedMessage } from 'react-intl'
+
 
 const TopBar = styled.div`
   display: flex;
@@ -124,17 +126,17 @@ const HeaderSub = styled.p`
 const AppHeader = ({ }) => (
   <>
     <TopBar id="topBar">
-      <TopBarText>Koronawirus: ważne informacje</TopBarText>
+      <TopBarText><FormattedMessage id="topBar" /></TopBarText>
     </TopBar>
     <LogoContainer>
       <Logo src="logo.jpg" />
       <Header>
-        <HeaderTitle>Generator obostrzeń COVID-19</HeaderTitle>
+        <HeaderTitle><FormattedMessage id="header"/></HeaderTitle>
         <Media>
           {
             ({ breakpoints, currentBreakpoint }) => {
               return breakpoints[currentBreakpoint] >= breakpoints.sm ? (
-                <HeaderSub>Sprawdź, co dzisiaj wolno, a czego nie</HeaderSub>
+                <HeaderSub><FormattedMessage id="subHeader"/></HeaderSub>
               ) : (
                 <></>
               )

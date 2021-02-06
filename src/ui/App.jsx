@@ -5,7 +5,8 @@ import breakpoints from './breakpoints'
 import ShareButtons from './ShareButtons'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
-import { collectEvent, collectStats, collectVisit, shuffleArray } from '../utils'
+import { collectEvent, collectVisit, shuffleArray } from '../utils'
+import { FormattedMessage } from 'react-intl'
 
 const Container = styled.div`
   height: 100vh;
@@ -123,32 +124,45 @@ function App(props) {
    *  sentences['meta'][n]  - additional data for sentence `n`
    */
   const [sentences, setSentences] = useState(null)
-  const [buttonText, setButtonText] = useState("GENERUJ")
+  const [buttonLabelId, setButtonLabelId] = useState("button")
 
   useEffect(() => {
     collectVisit()
   }, [])
 
+  const getValues = (sentences, indexes) => indexes.reduce((obj, index) => ({
+    ...obj,
+    [index]: sentences[index]
+  }), {})
+
   const optionalSentences = [
-    (sentences => (<Sentence key="2">Wszystkie osoby przybywające do Polski z {sentences[4]} {sentences[5]} są {sentences[6]}.</Sentence>)),
-    (sentences => (<Sentence key="6">Restauracje i bary są {sentences[18]}{sentences[19]}.</Sentence>)),
-    (sentences => (<Sentence key="8">Żłobki i przedszkola są {sentences[25]}.</Sentence>)),
-    (sentences => (<Sentence key="10">W godzinach {sentences[29]} zakupy mogą robić tylko osoby {sentences[30]}.</Sentence>)),
-    (sentences => (<Sentence key="11">W autobusach {sentences['meta'][32][0]} być zajęte maks. {sentences[32]} {sentences['meta'][32][1]} (lub {sentences[31]}% wszystkich miejsc).</Sentence>))
+    (sentences => (<Sentence key="2"><FormattedMessage id="sentence2" values={getValues(sentences, [4, 5, 6])} /></Sentence>)),
+    (sentences => (<Sentence key="6"><FormattedMessage id="sentence6" values={getValues(sentences, [18, 19])} /></Sentence>)),
+    (sentences => (<Sentence key="8"><FormattedMessage id="sentence8" values={getValues(sentences, [25])} /></Sentence>)),
+    (sentences => (<Sentence key="10"><FormattedMessage id="sentence10" values={getValues(sentences, [29, 30])} /></Sentence>)),
+    (sentences => (<Sentence key="11"><FormattedMessage id="sentence11" values={{
+      ...getValues(sentences, [31, 32]),
+      meta320: sentences['meta'][32][0],
+      meta321: sentences['meta'][32][1]
+    }} /></Sentence>))
   ]
 
   const obligatorySentences = [
-    (sentences => (<Sentence key="1">Hotele dostępne są tylko dla {sentences[0]}, {sentences[1]}, {sentences[2]} oraz {sentences[3]}.</Sentence>)),
-    (sentences => (<Sentence key="3">W zgromadzeniach {sentences['meta'][7][0]} uczestniczyć maks. {sentences[7]} {sentences['meta'][7][1]} (nie dotyczy {sentences[8]} oraz {sentences[9]}).</Sentence>)),
-    (sentences => (<Sentence key="4">Obowiązuje zakaz organizacji {sentences[10]} oraz {sentences[11]}.</Sentence>)),
-    (sentences => (<Sentence key="9">W {sentences[26]} i {sentences[27]} może przebywać maks. jedna osoba na {sentences[28]} m kw. pomieszczenia.</Sentence>)),
-    (sentences => (<Sentence key="7">Nauka zdalna w klasach {sentences[20]} szkół podstawowych, {sentences[21]} oraz {sentences[22]}, za wyjątkiem {sentences[23]} (chyba, że {sentences[24]}).</Sentence>)),
-    (sentences => (<Sentence key="5">Zamknięte są {sentences[12]}, {sentences[13]} oraz {sentences[14]}. Otwarte zostaną {sentences[15]} oraz {sentences[16]}, ale wyłącznie w {sentences[17]}.</Sentence>))
+    (sentences => (<Sentence key="1"><FormattedMessage id="sentence1" values={getValues(sentences, [0, 1, 2, 3])}/></Sentence>)),
+    (sentences => (<Sentence key="3"><FormattedMessage id="sentence3" values={{
+      ...getValues(sentences, [7, 8, 9]),
+      meta70: sentences['meta'][7][0],
+      meta71: sentences['meta'][7][1]
+    }} /></Sentence>)),
+    (sentences => (<Sentence key="4"><FormattedMessage id="sentence4" values={getValues(sentences, [10, 11])} />.</Sentence>)),
+    (sentences => (<Sentence key="9"><FormattedMessage id="sentence9" values={getValues(sentences, [26, 27, 28])} /></Sentence>)),
+    (sentences => (<Sentence key="7"><FormattedMessage id="sentence7" values={getValues(sentences, [20, 21, 22, 23, 24])} /></Sentence>)),
+    (sentences => (<Sentence key="5"><FormattedMessage id="sentence5" values={getValues(sentences, [12, 13, 14, 15, 16, 17])} /></Sentence>))
   ]
 
   const buttonAction = () => {
     setSentences(generate())
-    setButtonText("GENERUJ NOWE")
+    setButtonLabelId("buttonGenerateNew")
     document.getElementById('topBar').scrollIntoView()
     collectEvent()
   }
@@ -175,14 +189,14 @@ function App(props) {
       <AppHeader />
       <SentencesContainer>
         <SentenceHeader>
-          Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:
+          <FormattedMessage id="infoMessage" values={{ date }} />
         </SentenceHeader>
         {sentences && (
           <SentenceList>
           {finalSentences.map(it => it(sentences))}
           </SentenceList>
         )}
-        <StyledButton onClick={buttonAction}>{buttonText}</StyledButton>
+        <StyledButton onClick={buttonAction}><FormattedMessage id={buttonLabelId} /></StyledButton>
       </SentencesContainer>
       <ShareButtons />
       <AppFooter />
