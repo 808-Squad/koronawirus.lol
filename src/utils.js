@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import getUserLocale from 'get-user-locale';
 
 // Durstenfeld Shuffle from https://stackoverflow.com/a/12646864/6417161
 export function shuffleArray(array) {
@@ -56,4 +57,16 @@ export function collectEvent(uuid) {
     let req = new XMLHttpRequest();
     req.open("GET", "https://www.google-analytics.com/collect?" + requestParams.join("&"));
     req.send();
+}
+
+export function chooseLanguage() {
+    const supportedLanguages = ["pl", "en"]
+    const locale = getUserLocale().substr(0, 2)
+
+    if (supportedLanguages.indexOf(locale) !== -1) {
+        console.log(locale)
+        return locale
+    } 
+    // fall back to pl
+    return "pl"
 }
