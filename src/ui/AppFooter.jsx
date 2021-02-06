@@ -1,6 +1,7 @@
 import React from 'react'
 import breakpoints from './breakpoints'
 import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
 
 const Footer = styled.div`
   display: flex;
@@ -67,13 +68,20 @@ const AppFooter = ({ }) => (
   <>
     <Footer>
       <FooterText>
-        <b>Ta strona to żart</b>. Po prawdziwe informacje na temat obostrzeń udaj się <a href="https://www.gov.pl/web/koronawirus">tutaj</a>.
+        <b><FormattedMessage id="footer1" /></b> <FormattedMessage id="footer2" /><a href="https://www.gov.pl/web/koronawirus"><FormattedMessage id="footer3" /></a>
         <br />
-        Zagwiazdkuj <StarIcon/> to na <GithubIcon/> <a href="https://github.com/808-Squad/koronawirus.lol">GitHubie</a>.
+        <FormattedMessage id="footer4" values={{
+          star: <StarIcon />,
+          githubLogo: <GithubIcon />,
+          githubLink: <a href="https://github.com/808-Squad/koronawirus.lol"><FormattedMessage id="footer5" /></a>
+        }} />
         <br />
-        Ikony dzięki <a href="https://www.freepik.com" title="Freepik">Freepik</a> przez <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        <FormattedMessage id="footer6" values={{
+          freepik: <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
+          flaticon: <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        }}/>
         <br />
-        Aktualizacja 4.02.2021
+        <FormattedMessage id="footer7" /> 4.02.2021
       </FooterText>
     </Footer>
   </>

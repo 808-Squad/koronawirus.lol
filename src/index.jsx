@@ -5,13 +5,16 @@ import App from './ui/App';
 import reportWebVitals from './reportWebVitals';
 import ReactBreakpoints from 'react-breakpoints';
 import breakpoints from './ui/breakpoints.js';
-
+import { IntlProvider } from 'react-intl';
+import plMessages from './ui/messages/pl.json';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReactBreakpoints breakpoints={breakpoints}>
-      <App />
-    </ReactBreakpoints>
+    <IntlProvider messages={plMessages} locale="pl" defaultLocale="pl">
+      <ReactBreakpoints breakpoints={breakpoints}>
+        <App />
+      </ReactBreakpoints>
+    </IntlProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
