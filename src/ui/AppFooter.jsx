@@ -1,7 +1,7 @@
 import React from 'react'
 import breakpoints from './breakpoints'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
+import { useIntl, FormattedMessage } from 'react-intl'
 
 const Footer = styled.div`
   display: flex;
@@ -64,27 +64,33 @@ const StarIcon = styled.span`
   background-repeat: no-repeat;
 `
 
-const AppFooter = ({ }) => (
-  <>
-    <Footer>
-      <FooterText>
-        <b><FormattedMessage id="footer1" /></b> <FormattedMessage id="footer2" /><a href="https://www.gov.pl/web/koronawirus"><FormattedMessage id="footer3" /></a>
-        <br />
-        <FormattedMessage id="footer4" values={{
-          star: <StarIcon />,
-          githubLogo: <GithubIcon />,
-          githubLink: <a href="https://github.com/808-Squad/koronawirus.lol"><FormattedMessage id="footer5" /></a>
-        }} />
-        <br />
-        <FormattedMessage id="footer6" values={{
-          freepik: <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
-          flaticon: <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-        }}/>
-        <br />
-        <FormattedMessage id="footer7" /> 4.02.2021
-      </FooterText>
-    </Footer>
-  </>
-)
+const AppFooter = ({ }) => {
+  const intl = useIntl()
+  return (
+    <>
+      <Footer>
+        <FooterText>
+          <b><FormattedMessage id="footer1" /></b>&nbsp;
+          <FormattedMessage id="footer2" values={{
+            govLink: <a href={intl.formatMessage({id: "footerGovAddress"})}><FormattedMessage id="footer3" /></a>
+          }} />
+          <br />
+          <FormattedMessage id="footer4" values={{
+            star: <StarIcon />,
+            githubLogo: <GithubIcon />,
+            githubLink: <a href="https://github.com/808-Squad/koronawirus.lol"><FormattedMessage id="footer5" /></a>
+          }} />
+          <br />
+          <FormattedMessage id="footer6" values={{
+            freepik: <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
+            flaticon: <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+          }}/>
+          <br />
+          <FormattedMessage id="footer7" /> 4.02.2021
+        </FooterText>
+      </Footer>
+    </>
+  )
+}
 
 export default AppFooter

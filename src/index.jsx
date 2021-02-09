@@ -15,7 +15,7 @@ fetch(messagesPath)
 .then(response => {
   ReactDOM.render(
     <React.StrictMode>
-      <IntlProvider messages={response} locale="pl" defaultLocale="pl">
+      <IntlProvider messages={response} locale={language} defaultLocale={language}>
         <ReactBreakpoints breakpoints={breakpoints}>
           <App />
         </ReactBreakpoints>

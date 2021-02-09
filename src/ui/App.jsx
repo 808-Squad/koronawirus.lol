@@ -6,7 +6,7 @@ import ShareButtons from './ShareButtons'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 import { collectEvent, collectVisit, shuffleArray } from '../utils'
-import { FormattedMessage } from 'react-intl'
+import { useIntl, FormattedMessage } from 'react-intl'
 
 const Container = styled.div`
   height: 100vh;
@@ -118,10 +118,12 @@ const StyledButton = styled.button`
 
 
 function App(props) {
+  const intl = useIntl()
+
   /*
    * Format:
    *  sentences[n]          - value for sentence `n`
-   *  sentences['meta'][n]  - additional data for sentence `n`
+   *  sentences['meta'][locale][n]  - additional data for sentence `n` in `locale`
    */
   const [sentences, setSentences] = useState(null)
   const [buttonLabelId, setButtonLabelId] = useState("button")
@@ -142,8 +144,8 @@ function App(props) {
     (sentences => (<Sentence key="10"><FormattedMessage id="sentence10" values={getValues(sentences, [29, 30])} /></Sentence>)),
     (sentences => (<Sentence key="11"><FormattedMessage id="sentence11" values={{
       ...getValues(sentences, [31, 32]),
-      meta320: sentences['meta'][32][0],
-      meta321: sentences['meta'][32][1]
+      meta_pl_32_0: sentences['meta']['pl'][32][0],
+      meta_pl_32_1: sentences['meta']['pl'][32][1]
     }} /></Sentence>))
   ]
 
@@ -151,8 +153,8 @@ function App(props) {
     (sentences => (<Sentence key="1"><FormattedMessage id="sentence1" values={getValues(sentences, [0, 1, 2, 3])}/></Sentence>)),
     (sentences => (<Sentence key="3"><FormattedMessage id="sentence3" values={{
       ...getValues(sentences, [7, 8, 9]),
-      meta70: sentences['meta'][7][0],
-      meta71: sentences['meta'][7][1]
+      meta_pl_7_0: sentences['meta']['pl'][7][0],
+      meta_pl_7_1: sentences['meta']['pl'][7][1]
     }} /></Sentence>)),
     (sentences => (<Sentence key="4"><FormattedMessage id="sentence4" values={getValues(sentences, [10, 11])} />.</Sentence>)),
     (sentences => (<Sentence key="9"><FormattedMessage id="sentence9" values={getValues(sentences, [26, 27, 28])} /></Sentence>)),
@@ -173,7 +175,7 @@ function App(props) {
     year: 'numeric'
   };
 
-  const date = (new Date()).toLocaleDateString('pl-PL', dateOpts)
+  const date = intl.formatDate(new Date(), dateOpts);
 
   shuffleArray(optionalSentences)
   const finalSentences = [
