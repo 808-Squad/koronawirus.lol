@@ -69,5 +69,6 @@ export function chooseLanguage() {
         }
     }
 
+    console.log('here')
     return "pl"
 }
