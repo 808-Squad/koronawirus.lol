@@ -12,6 +12,7 @@ import {
     LinkedinIcon
 } from 'react-share'
 import styled from 'styled-components';
+import { chooseLanguage } from '../utils';
 
 const ShareButtonContainer = styled.div`
     display: flex;
@@ -20,8 +21,9 @@ const ShareButtonContainer = styled.div`
         margin-right: 5px;
     }
 `
+const language = chooseLanguage()
 
-const url = "https://koronawirus.lol"
+const url = `https://koronawirus.lol/${language !== "pl" ? language : ""}`
 
 const ShareButtons = ({ }) => (
     <>
