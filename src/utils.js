@@ -60,12 +60,14 @@ export function collectEvent(uuid) {
 }
 
 export function chooseLanguage() {
+    const address = window.location.href
     const supportedLanguages = ["pl", "en"]
-    const locale = getUserLocale().substr(0, 2)
 
-    if (supportedLanguages.indexOf(locale) !== -1) {
-        return locale
-    } 
-    // fall back to pl
+    for (let language of supportedLanguages) {
+        if (address.includes(`/${language}`)) {
+            return language
+        }
+    }
+
     return "pl"
 }

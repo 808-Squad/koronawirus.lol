@@ -1,7 +1,7 @@
 {
-    "topBar": "Koronawirus - ważne informacje",
-    "header": "Generator obostrzeń COVID-19",
-    "subHeader": "Sprawdź, co dzisiaj wolno, a czego nie",
+    "topBar": "Coronavirus - important information",
+    "header": "COVID-19 Restrictions Generator",
+    "subHeader": "Check what is and what isn't allowed today",
     "infoMessage": "Kancelaria Prezesa Rady Ministrów informuje, że od {date} roku:",
     "button": "GENERUJ",
     "buttonGenerateNew": "GENERUJ NOWE",
