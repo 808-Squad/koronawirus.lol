@@ -1,4 +1,5 @@
 import { chooseLanguage, shuffleArray } from '../utils'
+import { useIntl } from 'react-intl'
 
 const QUARANTINE_MIN = 7;
 const QUARANTINE_MAX = 14;
@@ -56,12 +57,14 @@ function getRandom(n, data) {
 function getQuarantineDecision() {
     let rnd = Math.random();
     if (rnd <= 0.25) {
-        return "zwolnione z kwarantanny";
+        // return "zwolnione z kwarantanny";
+        return intl.formatMessage({id: "dynamicQuarantine1"});
     }
     else {
         rnd = Math.random();
         const quarantine_days = QUARANTINE_MIN + Math.floor(rnd * (QUARANTINE_MAX - QUARANTINE_MIN));
-        return "zobowiązane do odbycia kwarantanny przez " + quarantine_days + " dni";
+        // return "zobowiązane do odbycia kwarantanny przez " + quarantine_days + " dni";
+        return intl.formatMessage({id: "dynamicQuarantine2", values: { days: quarantine_days }});
     }
 }
 
@@ -70,10 +73,13 @@ function getBusSeatsNumber(percentage) {
 }
 
 function getRestaurantState(value1, value2) {
-    if (value1.includes("zamknięte")) {
+    // if (value1.includes("zamknięte")) {
+    const closedStr = intl.formatMessage({id: "dynamicRestaurant1"});
+    if (value1.includes(closedStr)) {
         return "";
     }
-    return `, pod warunkiem ${value2}`;
+    // return `, pod warunkiem ${value2}`;
+    return intl.formatMessage({id: "dynamicRestaurant2", values: { condition: value2 }});
 }
 
 function getSchoolGradeRange() {
@@ -109,7 +115,8 @@ export default function generate() {
     dict[31] = getRandom(31, data);
     dict[32] = getBusSeatsNumber(dict[31]);
     dict['meta'] = {};
-    dict['meta'][7] = (() => {
+    dict['meta']['pl'] = {};
+    dict['meta']['pl'][7] = (() => {
         const n = Number(dict[7]);
         if ((n % 10).between(2, 4) && !(n % 100).between(12, 14)) {
             return ['mogą', 'osoby'];
@@ -118,7 +125,7 @@ export default function generate() {
             return ['może', 'osób'];
         }
     })();
-    dict['meta'][32] = (() => {
+    dict['meta']['pl'][32] = (() => {
         const n = Number(dict[32]);
         if ((n % 10).between(2, 4) && !(n % 100).between(12, 14)) {
             return ['mogą', 'miejsca siedzące'];
