@@ -54,7 +54,7 @@ function getRandom(n, data) {
     return arr[idx];
 }
 
-function getQuarantineDecision() {
+function getQuarantineDecision(intl) {
     let rnd = Math.random();
     if (rnd <= 0.25) {
         // return "zwolnione z kwarantanny";
@@ -64,7 +64,7 @@ function getQuarantineDecision() {
         rnd = Math.random();
         const quarantine_days = QUARANTINE_MIN + Math.floor(rnd * (QUARANTINE_MAX - QUARANTINE_MIN));
         // return "zobowiązane do odbycia kwarantanny przez " + quarantine_days + " dni";
-        return intl.formatMessage({id: "dynamicQuarantine2", values: { days: quarantine_days }});
+        return intl.formatMessage({id: "dynamicQuarantine2"}, { days: quarantine_days });
     }
 }
 
@@ -72,14 +72,14 @@ function getBusSeatsNumber(percentage) {
     return Math.floor(60 * Number(percentage) / 100);
 }
 
-function getRestaurantState(value1, value2) {
+function getRestaurantState(intl, value1, value2) {
     // if (value1.includes("zamknięte")) {
     const closedStr = intl.formatMessage({id: "dynamicRestaurant1"});
     if (value1.includes(closedStr)) {
         return "";
     }
     // return `, pod warunkiem ${value2}`;
-    return intl.formatMessage({id: "dynamicRestaurant2", values: { condition: value2 }});
+    return intl.formatMessage({id: "dynamicRestaurant2"}, { condition: value2 });
 }
 
 function getSchoolGradeRange() {
@@ -90,18 +90,18 @@ function getSchoolGradeRange() {
     return `${lo}-${hi}`;
 }
 
-export default function generate() {
+export default function generate(intl) {
     let dict = {};
     [dict[0], dict[1], dict[2], dict[3]] = getRandomRange(0, 3, data);
     dict[4] = getRandom(4, data);
     dict[5] = getRandom(5, data);
-    dict[6] = getQuarantineDecision();
+    dict[6] = getQuarantineDecision(intl);
     dict[7] = getRandom(7, data);
     [dict[8], dict[9], dict[10], dict[11]] = getRandomRange(8, 11, data);
     [dict[12], dict[13], dict[14], dict[15], dict[16]] = getRandomRange(12, 16, data);
     dict[17] = getRandom(17, data);
     dict[18] = getRandom(18, data);
-    dict[19] = getRestaurantState(dict[18], getRandom(19, data));
+    dict[19] = getRestaurantState(intl, dict[18], getRandom(19, data));
     dict[20] = getSchoolGradeRange();
     dict[21] = getRandom(21, data);
     dict[22] = getRandom(22, data);
