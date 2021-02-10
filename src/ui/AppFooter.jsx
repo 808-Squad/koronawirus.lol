@@ -50,7 +50,7 @@ const GithubIcon = styled.span`
   display: inline-block;
   width: 15px;
   height: 1em;
-  background-image: url('github.svg');
+  background-image: url('/github.svg');
   background-position: center;
   background-repeat: no-repeat;
 `
@@ -59,7 +59,7 @@ const StarIcon = styled.span`
   display: inline-block;
   width: 15px;
   height: 1em;
-  background-image: url('star.svg');
+  background-image: url('/star.svg');
   background-position: center;
   background-repeat: no-repeat;
 `

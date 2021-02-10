@@ -6,7 +6,7 @@ const QUARANTINE_MAX = 14;
 
 let data = null;
 
-const dataPath = `lolcontent/${chooseLanguage()}.tsv`
+const dataPath = `${window.location.origin}/lolcontent/${chooseLanguage()}.tsv`
 
 let xhr = new XMLHttpRequest();
 xhr.open("GET", dataPath, true);
