@@ -129,7 +129,7 @@ const AppHeader = ({ }) => (
       <TopBarText><FormattedMessage id="topBar" /></TopBarText>
     </TopBar>
     <LogoContainer>
-      <Logo src="logo.jpg" />
+      <Logo src="/logo.jpg" />
       <Header>
         <HeaderTitle><FormattedMessage id="header"/></HeaderTitle>
         <Media>

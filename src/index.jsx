@@ -8,7 +8,7 @@ import { IntlProvider } from 'react-intl';
 import { chooseLanguage } from './utils'
 
 const language = chooseLanguage()
-const messagesPath = `messages/${language}.json`;
+const messagesPath = `${window.location.origin}/messages/${language}.json`;
 
 fetch(messagesPath)
 .then(response => response.json())
