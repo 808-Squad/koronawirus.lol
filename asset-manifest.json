@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://koronawirus.lol/static/css/main.fb2d549b.chunk.css",
-    "main.js": "https://koronawirus.lol/static/js/main.b6308b5e.chunk.js",
-    "main.js.map": "https://koronawirus.lol/static/js/main.b6308b5e.chunk.js.map",
+    "main.js": "https://koronawirus.lol/static/js/main.9fa9d028.chunk.js",
+    "main.js.map": "https://koronawirus.lol/static/js/main.9fa9d028.chunk.js.map",
     "runtime-main.js": "https://koronawirus.lol/static/js/runtime-main.c419b5c0.js",
     "runtime-main.js.map": "https://koronawirus.lol/static/js/runtime-main.c419b5c0.js.map",
     "static/js/2.7185c707.chunk.js": "https://koronawirus.lol/static/js/2.7185c707.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.c419b5c0.js",
     "static/js/2.7185c707.chunk.js",
     "static/css/main.fb2d549b.chunk.css",
-    "static/js/main.b6308b5e.chunk.js"
+    "static/js/main.9fa9d028.chunk.js"
   ]
 }
