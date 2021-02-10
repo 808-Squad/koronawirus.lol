@@ -23,7 +23,7 @@ const ShareButtonContainer = styled.div`
 `
 const language = chooseLanguage()
 
-const url = `https://koronawirus.lol/${language !== "pl" ? language : ""}`
+const url = `https://koronawirus.lol/${language !== "pl" ? `${language}/` : ""}`
 
 const ShareButtons = ({ }) => (
     <>
