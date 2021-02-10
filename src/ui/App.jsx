@@ -156,14 +156,14 @@ function App(props) {
       meta_pl_7_0: sentences['meta']['pl'][7][0],
       meta_pl_7_1: sentences['meta']['pl'][7][1]
     }} /></Sentence>)),
-    (sentences => (<Sentence key="4"><FormattedMessage id="sentence4" values={getValues(sentences, [10, 11])} />.</Sentence>)),
+    (sentences => (<Sentence key="4"><FormattedMessage id="sentence4" values={getValues(sentences, [10, 11])} /></Sentence>)),
     (sentences => (<Sentence key="9"><FormattedMessage id="sentence9" values={getValues(sentences, [26, 27, 28])} /></Sentence>)),
     (sentences => (<Sentence key="7"><FormattedMessage id="sentence7" values={getValues(sentences, [20, 21, 22, 23, 24])} /></Sentence>)),
     (sentences => (<Sentence key="5"><FormattedMessage id="sentence5" values={getValues(sentences, [12, 13, 14, 15, 16, 17])} /></Sentence>))
   ]
 
   const buttonAction = () => {
-    setSentences(generate())
+    setSentences(generate(intl))
     setButtonLabelId("buttonGenerateNew")
     document.getElementById('topBar').scrollIntoView()
     collectEvent()

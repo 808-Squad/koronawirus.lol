@@ -14,8 +14,8 @@
     "footer6": "Icons thanks to {freepik} through {flaticon}",
     "footer7": "Updated ",
     "sentence1": "Only {0}, {1}, {2} and {3} are allowed in hotels.",
-    "sentence2": "People returning to the country from {4} {5} are {6}.",
-    "sentence3": "At gatherings, there can be a maximum of {7} people (not including {8} and {9}).",
+    "sentence2": "All people returning to the country from {4} {5} are {6}.",
+    "sentence3": "There can only be a maximum of {7} people at gatherings (not including {8} and {9}).",
     "sentence4": "Organising {10} and {11} is forbidden.",
     "sentence5": "The {12}, {13} as well as {14} are closed. The {15} and {16} will be opened, although only on {17}.",
     "sentence6": "Restaurants and bars are {18}{19}.",
@@ -25,7 +25,7 @@
     "sentence10": "{29} shopping is reserved for {30}.",
     "sentence11": "In city buses, only up to {32} seats may be occupied (or {31}% of all seats).",
     "dynamicQuarantine1": "exempt from quarantine",
-    "dynamicQuarantine2": "obliged to undergo quaranine for {days} days",
+    "dynamicQuarantine2": "obliged to undergo quarantine for {days} days",
     "dynamicRestaurant1": "closed",
     "dynamicRestaurant2": ", provided {condition}"
 }
