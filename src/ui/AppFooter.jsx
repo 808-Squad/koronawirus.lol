@@ -86,7 +86,7 @@ const AppFooter = ({ }) => {
             flaticon: <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
           }}/>
           <br />
-          <FormattedMessage id="footer7" /> 4.02.2021
+          <FormattedMessage id="footer7" /> 14.12.2021
         </FooterText>
       </Footer>
     </>
