@@ -95,7 +95,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://koronawirus.lol",
+  "homepage": "https://koronawirus-lol.incens.io",
   "jest": {
     "roots": [
       "<rootDir>/src"
